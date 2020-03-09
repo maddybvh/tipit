@@ -6,7 +6,18 @@
     <title>TipIT</title>
 </head>
 <body>
+    <form>
+            <label for="bill">Bill amount:</label>
+            <input type="number" required id="bill" name="bill" step=.01><br>
+            <label for="tipPercentLow">Lowest percentage you'd tip:</label>
+            <input type="percent" required id="tipPercentLow" name="tipPercentLow" value=18><br>
+            <label for="tipPercentHigh">Highest percentage you'd tip:</label>
+            <input type="percent" required id="tipPercentHigh" name="tipPercentHigh" value=25><br>     
+        </form>
+    <button id="submitButton">Get optimal tip</button>
+    <p id="results"></p>
 
 </body>
+
 <script src='script.js'></script>
 </html>
