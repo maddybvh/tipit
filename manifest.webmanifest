@@ -1,0 +1,17 @@
+{
+    "name": "tipit: Palindrome Tip Calculator",
+    "short_name": "tipit",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#3eb4b8",
+    "description": "An app which helps whimsical people find more palindromes.",
+    "theme_color": "#3eb4b8",
+    "icons": [
+      {
+        "src": "./icon/layers.png",
+        "sizes": "100×100",
+        "type": "image/png"
+      }
+    ]
+  }
