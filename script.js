@@ -70,6 +70,14 @@ document.getElementById("submitButton").addEventListener('click', (e) => {
     palTotalArray = findPalTotals(billAmount, tipArray);
 
     allTotalArray = arrayTipsAndTotals(billAmount, tipArray);
+
+    if (palTotalArray && palTotalArray.length){
+        document.getElementById("results").innerHTML = "Both tip and total can be palindromes!";
+    } else if (tipArray && tipArray.length){
+        document.getElementById("results").innerHTML = "You can tip in palindrome!";
+    } else {
+        document.getElementById("results").innerHTML = "There are no palindromic tips available in that range.";
     }
+}
 );
 
