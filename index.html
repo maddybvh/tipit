@@ -6,15 +6,16 @@
     <title>TipIT</title>
 </head>
 <body>
+    <h1>Find a palindromic tip.</h1>
     <form>
-            <label for="bill">Bill amount:</label>
-            <input type="number" required id="bill" name="bill" step=.01><br>
-            <label for="tipPercentLow">Lowest percentage you'd tip:</label>
-            <input type="percent" required id="tipPercentLow" name="tipPercentLow" value=18><br>
-            <label for="tipPercentHigh">Highest percentage you'd tip:</label>
-            <input type="percent" required id="tipPercentHigh" name="tipPercentHigh" value=25><br>     
+            <label for="bill">Bill amount: $</label>
+            <input type="number" required id="bill" name="bill"><br>
+            <label for="tipPercentLow">Tip – low end:</label>
+            <input type="percent" required id="tipPercentLow" name="tipPercentLow" value=18> %<br>
+            <label for="tipPercentHigh">Tip – high end:</label>
+            <input type="percent" required id="tipPercentHigh" name="tipPercentHigh" value=25> %<br>     
         </form>
-    <button id="submitButton">Get optimal tip</button>
+    <button id="submitButton">Calculate tip</button>
     <p>
         <p  id="results">
         </p>
@@ -27,7 +28,6 @@
 
         </table>
     </p>
-
 </body>
 
 <script src='script.js'></script>
