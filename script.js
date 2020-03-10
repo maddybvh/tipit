@@ -71,15 +71,26 @@ function printResultsTable(billAmount, array){
         cell0.innerHTML = billAmount;
         cell1.innerHTML = array[i][0];
         cell2.innerHTML = array[i][1];
-
     }
-
-
-
 }
+
+//Use DOM Manipulation to clear the table of old results
+function clearTable(){
+    var tableHeaderRowCount = 1;
+    var table = document.getElementById('resultsTable');
+    var rowCount = table.rows.length;
+    for (var i = tableHeaderRowCount; i < rowCount; i++) {
+        table.deleteRow(tableHeaderRowCount);
+    }
+}
+
+
 
 //Event listener, main script calling all other scripts.
 document.getElementById("submitButton").addEventListener('click', (e) => {
+
+    clearTable();
+
     billAmount = document.getElementById("bill").value;
     tipPercentLow = document.getElementById("tipPercentLow").value;
     tipPercentHigh = document.getElementById("tipPercentHigh").value;
@@ -94,7 +105,7 @@ document.getElementById("submitButton").addEventListener('click', (e) => {
         document.getElementById("results").innerHTML = "Both tip and total can be palindromes!";
         printResultsTable(billAmount, palTotalArray)
     } else if (tipArray && tipArray.length){
-        document.getElementById("results").innerHTML = "You can tip in palindrome!";
+        document.getElementById("results").innerHTML = "You can tip in palindrome.";
         printResultsTable(billAmount, allTotalArray)
     } else {
         document.getElementById("results").innerHTML = "Sorry, there are no palindromic tips available in that range.";
