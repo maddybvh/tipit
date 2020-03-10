@@ -57,7 +57,26 @@ function findPalTotals (billAmount, tipArray){
     return palTotalArray
 }
 
+//Use DOM maniuplation to print the resulting bill, tip, and total combinations.
+function printResultsTable(billAmount, array){
+    var table = document.getElementById("resultsTable");
+    let i;
+    for (i = 0; i < array.length; i++){
+        var row = table.insertRow(i+1);
 
+        let cell0 = row.insertCell(0);
+        let cell1 = row.insertCell(1);
+        let cell2 = row.insertCell(2);
+
+        cell0.innerHTML = billAmount;
+        cell1.innerHTML = array[i][0];
+        cell2.innerHTML = array[i][1];
+
+    }
+
+
+
+}
 
 //Event listener, main script calling all other scripts.
 document.getElementById("submitButton").addEventListener('click', (e) => {
@@ -73,10 +92,12 @@ document.getElementById("submitButton").addEventListener('click', (e) => {
 
     if (palTotalArray && palTotalArray.length){
         document.getElementById("results").innerHTML = "Both tip and total can be palindromes!";
+        printResultsTable(billAmount, palTotalArray)
     } else if (tipArray && tipArray.length){
         document.getElementById("results").innerHTML = "You can tip in palindrome!";
+        printResultsTable(billAmount, allTotalArray)
     } else {
-        document.getElementById("results").innerHTML = "There are no palindromic tips available in that range.";
+        document.getElementById("results").innerHTML = "Sorry, there are no palindromic tips available in that range.";
     }
 }
 );
