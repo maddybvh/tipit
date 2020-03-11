@@ -59,6 +59,7 @@ function findPalTotals (billAmount, tipArray){
 
 //Use DOM maniuplation to print the resulting bill, tip, and total combinations.
 function printResultsTable(billAmount, array){
+    console.log("test")
     var table = document.getElementById("resultsTable");
     let i;
     for (i = 0; i < array.length; i++){
