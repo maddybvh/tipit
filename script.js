@@ -50,8 +50,9 @@ function findPalTotals (billAmount, tipArray){
     var palTotalArray = [];
     for (i of tipArray){
         let total = Number(billAmount) + Number(i);
-        if (palindrome(total.toString())){
-            palTotalArray.push([i, total]);
+        let n = total.toFixed(2)
+        if (palindrome(n.toString())){
+            palTotalArray.push([i, n]);
         }
     }
     return palTotalArray
