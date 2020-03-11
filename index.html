@@ -1,45 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>TipIT</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="apple-touch-icon" href="./icon/icon.png">
-</head>
-<body>
-    <h1>Find a palindromic tip.</h1>
+    
+    <title>tipit</title>
+  </head>
+  <body>
+    <h1>tipit</h1>
     <form>
-            <label for="bill">Bill amount: $</label>
-            <input type="number" required id="bill" name="bill"><br>
-            <label for="tipPercentLow">Tip – low end:</label>
-            <input type="percent" required id="tipPercentLow" name="tipPercentLow" value=18> %<br>
-            <label for="tipPercentHigh">Tip – high end:</label>
-            <input type="percent" required id="tipPercentHigh" name="tipPercentHigh" value=25> %<br>     
-        </form>
+        <label for="bill">Bill:</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input type="number" class="form-control" id="bill" aria-label="bill" step=.01>
+        </div>
+        <label for="tipPercentLow">Tip – low end:</label>
+        <div class="input-group mb-3">
+                <input type="number" class="form-control" aria-label="Low end tip percent" id="tipPercentLow" value=18>
+                <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                </div>
+        </div>
+        <label for="tipPercentHigh">Tip – high end:</label>
+        <div class="input-group mb-3">
+                <input type="number" class="form-control" aria-label="High end tip percent" id="tipPercentHigh" value=25>
+                <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                </div>
+        </div>        
+    </form>
     <button id="submitButton">Calculate tip</button>
-    <p>
-        <p  id="results">
-        </p>
-        <table id="resultsTable">
-            <tr>
-                <th>Bill</th>
-                <th>Tip</th>
-                <th>Total</th>
-            </tr>
+    <div>
+        <div  id="results">
+            <table id="resultsTable">
+                <tr>
+                    <th>Bill</th>
+                    <th>Tip</th>
+                    <th>Total</th>
+                </tr>    
+            </table>
+        </div>
+    </div>
 
-        </table>
-    </p>
-</body>
-
-
-<script src='script.js'></script>
-
-<script>
-    if('serviceWorker' in navigator) {
-      navigator.serviceWorker
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--script.js-->
+    <script src='script.js'></script>
+    <!--service worker for PWA-->
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker
                .register('./sw.js')
                .then(function() { console.log("Service Worker Registered"); });
-    }
+        }
     </script>
+</body>
 </html>
