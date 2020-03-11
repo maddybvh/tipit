@@ -10,7 +10,7 @@
     
     <title>tipit</title>
   </head>
-  <body>
+  <body class="container">
     <h1>tipit</h1>
     <form>
         <label for="bill">Bill:</label>
@@ -35,16 +35,19 @@
                 </div>
         </div>        
     </form>
-    <button class="btn btn-primary" id="submitButton">Calculate tip</button>
-    <div>
-        <div id="results"></div>
-            <table class="table" id="resultsTable">
-                <tr>
-                    <th>Bill</th>
-                    <th>Tip</th>
-                    <th>Total</th>
-                </tr>    
-            </table>
+    <div class="text-center">
+        <button class="btn btn-primary" id="submitButton">Calculate tip</button><br>
+    
+        <div>
+            <div id="results"></div>
+                <table class="table" id="resultsTable">
+                    <tr>
+                        <th>Bill</th>
+                        <th>Tip</th>
+                        <th>Total</th>
+                    </tr>    
+                </table>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
