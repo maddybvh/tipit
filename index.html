@@ -11,35 +11,44 @@
     <title>tipit</title>
   </head>
   <body class="container">
-    <h1>tipit</h1>
+    <h1 class="text-center">tipit</h1>
     <form>
-        <label for="bill">Bill:</label>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$</span>
-            </div>
-            <input type="number" class="form-control" id="bill" aria-label="bill" step=.01 min=0>
-        </div>
-        <label for="tipPercentLow">Tip – low end:</label>
-        <div class="input-group mb-3">
-                <input type="number" class="form-control" aria-label="Low end tip percent" id="tipPercentLow" value=18 min=0>
-                <div class="input-group-append">
-                    <span class="input-group-text">%</span>
+        <div class="form-group row">
+                <label for="bill" class="col-sm-2 col-form-label">Bill:</label>
+                <div class="input-group col-sm-10">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="number" class="form-control" id="bill" aria-label="bill" step=.01 min=0>
                 </div>
         </div>
-        <label for="tipPercentHigh">Tip – high end:</label>
-        <div class="input-group mb-3">
-                <input type="number" class="form-control" aria-label="High end tip percent" id="tipPercentHigh" value=25 min=0>
-                <div class="input-group-append">
-                    <span class="input-group-text">%</span>
+        <div class="form-group row">
+                <label for="tipPercentLow" class="col-sm-2 col-form-label">Tip – low:</label>
+                <div class="input-group col-sm-10">
+                        <input type="number" class="form-control" aria-label="Low end tip percent" id="tipPercentLow" value=18 min=0>
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
                 </div>
-        </div>        
+        </div>
+        <div class="form-group row">
+                <label for="tipPercentHigh" class="col-sm-2 col-form-label">Tip – high:</label>
+                <div class="input-group col-sm-10">
+                        <input type="number" class="form-control" aria-label="High end tip percent" id="tipPercentHigh" value=25 min=0>
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                </div>
+
+        </div>
+        
+                
     </form>
     <div class="text-center">
         <button class="btn btn-primary" id="submitButton">Calculate tip</button><br>
     
         <div>
-            <div id="results"></div>
+            <div id="results" class="px-2"></div>
                 <table class="table" id="resultsTable">
                     <tr></tr>   
                 </table>
