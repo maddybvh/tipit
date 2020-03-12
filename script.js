@@ -93,8 +93,8 @@ function clearTable(){
     var tableHeaderRowCount = 1;
     var table = document.getElementById('resultsTable');
     var rowCount = table.rows.length;
-    for (var i = tableHeaderRowCount; i < rowCount; i++) {
-        table.deleteRow(tableHeaderRowCount);
+    for (var i = tableHeaderRowCount; i <= rowCount; i++) {
+        table.deleteRow(-1);
     }
 }
 
