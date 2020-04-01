@@ -4,55 +4,70 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="apple-touch-icon" href="./icon/icon.png">
-    
+
     <title>tipit</title>
   </head>
   <body class="container">
     <h1 class="text-center">tipit</h1>
-    <form>
-        <div class="form-group row">
-                <label for="bill" class="col-sm-2 col-form-label">Bill:</label>
-                <div class="input-group col-sm-10">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">$</span>
-                    </div>
-                    <input type="number" class="form-control" id="bill" aria-label="bill" step=.01 min=0>
-                </div>
+    <form id="tip-form" class="col-9 col-md-4 mx-auto">
+      <div class="form-group row">
+        <label for="bill" class="col-form-label">Bill:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input type="number" class="form-control" id="bill" aria-label="bill" step=".01" min="0">
         </div>
-        <div class="form-group row">
-                <label for="tipPercentLow" class="col-sm-2 col-form-label">Tip – low:</label>
-                <div class="input-group col-sm-10">
-                        <input type="number" class="form-control" aria-label="Low end tip percent" id="tipPercentLow" value=18 min=0>
-                        <div class="input-group-append">
-                            <span class="input-group-text">%</span>
-                        </div>
-                </div>
+      </div>
+      <div class="form-group row">
+        <label for="tipPercentLow" class="col-form-label">Tip – low:</label>
+        <div class="input-group">
+          <input type="number" class="form-control" aria-label="Low end tip percent" id="tipPercentLow" value="18" min="0">
+          <div class="input-group-append">
+            <span class="input-group-text">%</span>
+          </div>
         </div>
-        <div class="form-group row">
-                <label for="tipPercentHigh" class="col-sm-2 col-form-label">Tip – high:</label>
-                <div class="input-group col-sm-10">
-                        <input type="number" class="form-control" aria-label="High end tip percent" id="tipPercentHigh" value=25 min=0>
-                        <div class="input-group-append">
-                            <span class="input-group-text">%</span>
-                        </div>
-                </div>
+      </div>
+      <div class="form-group row">
+        <label for="tipPercentHigh" class="col-form-label">Tip – high:</label>
+        <div class="input-group">
+          <input type="number" class="form-control" aria-label="High end tip percent" id="tipPercentHigh" value="25" min="0">
+          <div class="input-group-append">
+            <span class="input-group-text">%</span>
+          </div>
+        </div>
 
-        </div>
-        
-                
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary text-center" id="submitButton">Calculate Tip</button>
+      </div>
+
     </form>
-    <div class="text-center">
-        <button class="btn btn-primary" id="submitButton">Calculate tip</button><br>
-    
-        <div>
-            <div id="results" class="px-2"></div>
-                <table class="table" id="resultsTable">
-                    <tr></tr>   
-                </table>
-        </div>
+    <div class="text-center col-md-9 mx-auto">
+      <div id="results" class="my-4 px-2"></div>
+      <table class="table d-none" id="resultsTable">
+        <thead>
+          <tr>
+            <th scope="col">
+              Bill
+            </th>
+            <th scope="col">
+              Tip
+            </th>
+            <th scope="col">
+              Total
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr></tr>
+        </tbody>
+
+      </table>
     </div>
 
     <!-- Optional JavaScript -->
@@ -64,11 +79,11 @@
     <script src='script.js'></script>
     <!--service worker for PWA-->
     <script>
-        if('serviceWorker' in navigator) {
-            navigator.serviceWorker
-               .register('./sw.js')
-               .then(function() { console.log("Service Worker Registered"); });
-        }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(function () {
+          console.log("Service Worker Registered");
+        });
+      }
     </script>
-</body>
+  </body>
 </html>
